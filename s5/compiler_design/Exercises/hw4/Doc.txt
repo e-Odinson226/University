@@ -1,0 +1,25 @@
+    Grammar
+T:  ^id
+    byte
+    integer
+    num dotdot num
+    array [] of type
+------------------------------------
+    type -->    simple
+                | ^id
+                | array [ simple ] of type
+    simple -->      byte
+                    | integer
+                    | num dotdot num
+
+Input1:
+array [ -20 .. 20 ] of array [ -20 .. 20 ] of integer
+output1: parse successful!
+
+Input2: 
+array [ 10 .. 20 ] of array [ 10 .. 20  of byte
+output2: parse failure!
+
+Input3:
+[  20 . 30 ]
+output3: parse failure!
